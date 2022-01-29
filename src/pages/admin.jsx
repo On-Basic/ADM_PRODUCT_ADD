@@ -1,15 +1,15 @@
-<<<<<<< HEAD
 import styled from 'styled-components';
 import Addoption from './addoption';
-import ExpoSalesPeriodSet from 'components/productExpoSalesPeriod/ExpoSalesPeriodSet';
-
+import Productorder from './productorder';
+import ExpoSalesPeriodSet from './ExpoSalesPeriodSet';
+import ProductInfo from './productInfo';
 
 const Admin = () => {
   return (
     <Wrap>
-      <Addoption></Addoption>
-      <SY />
-      <ProductInfo/>
+      <ExpoSalesPeriodSet />
+      <Addoption />
+      <ProductInfo />
       <Productorder />
     </Wrap>
   );
