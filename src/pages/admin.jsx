@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import Addoption from './addoption';
+import ExpoSalesPeriodSet from 'components/productExpoSalesPeriod/ExpoSalesPeriodSet';
 
 const Admin = () => {
   return (
     <Wrap>
-      <Addoption></Addoption>
+      <ExpoSalesPeriodSet />
+      <Addoption />
     </Wrap>
   );
 };

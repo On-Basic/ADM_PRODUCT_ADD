@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { PALLETS } from 'style/theme';
 import Radio from 'components/common/Radio';
@@ -7,6 +7,14 @@ import DateRange from 'components/common/datepicker/DateRange';
 const ExpoSalesPeriodSet = () => {
   const [exposureOption, setExposureOption] = useState('제한 없음');
   const [salesOption, setSalesOption] = useState('제한 없음');
+
+  const [exposureEndTime, setExposureEndTime] = useState(
+    new Date('YYYY.MM.DD YY:MM')
+  );
+
+  const [salesEndTime, setSalesEndTime] = useState(
+    new Date('YYYY.MM.DD YY:MM')
+  );
 
   const handleExposureOption = (e) => {
     const value = e.target.value;
@@ -17,6 +25,13 @@ const ExpoSalesPeriodSet = () => {
     const value = e.target.value;
     setSalesOption(value);
   };
+
+  useEffect(() => {
+    new Date().getTime() > exposureEndTime.getTime() &&
+      setExposureOption('미노출');
+
+    new Date().getTime() > salesEndTime.getTime() && setSalesOption('미노출');
+  }, [exposureEndTime, salesEndTime]);
 
   return (
     <SectionWrapper>
